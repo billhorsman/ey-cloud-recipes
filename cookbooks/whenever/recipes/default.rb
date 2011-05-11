@@ -16,7 +16,7 @@ if ['app_master', 'util', 'solo'].include?(node[:instance_role])
   execute "whenever" do
     cwd "/data/#{appname}/current"
     user local_user[:username]
-    command "bundle exec whenever --load-file config/schedule.rb --set environment=#{rails_env} --update-crontab '#{appname}_#{node[:environment][:framework_env]}'"
+    command "bundle exec whenever --load-file config/schedule.rb --set environment=#{node[:environment][:framework_env]} --update-crontab '#{appname}_#{node[:environment][:framework_env]}'"
     action :run 
   end
   
