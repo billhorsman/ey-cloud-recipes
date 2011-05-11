@@ -75,3 +75,4 @@ if ['app_master', 'app', 'util', 'solo'].include?(node[:instance_role])
 end
 
 require_recipe "delayed_job"
+require_recipe "monit"
