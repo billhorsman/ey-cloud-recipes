@@ -67,3 +67,9 @@ require_recipe "memcached"
 #uncomment to include the mysql_administrative_tools recipe
 # additional configuration of this recipe is required
 #require_recipe "mysql_administrative_tools"
+
+if ['app_master', 'app', 'util', 'solo'].include?(node[:instance_role]) 
+  execute "mysql2 database.yml" do 
+    command "sed -i s/mysql$/mysql2/ /data/gcr2/shared/config/database.yml" 
+  end 
+end
