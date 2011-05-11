@@ -73,3 +73,5 @@ if ['app_master', 'app', 'util', 'solo'].include?(node[:instance_role])
     command "sed -i s/mysql$/mysql2/ /data/gcr2/shared/config/database.yml" 
   end 
 end
+
+require_recipe "delayed_job"
