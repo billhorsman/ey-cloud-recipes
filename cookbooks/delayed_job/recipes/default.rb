@@ -26,6 +26,7 @@ if node[:instance_role] == "app_master" || (node[:instance_role] == "util" && no
         group "root"
         mode 0644
         variables({
+          :num_workers => worker_count,
           :app_name => app_name,
           :user => node[:owner_name],
           :worker_name => "delayed_job#{count+1}",
@@ -34,8 +35,7 @@ if node[:instance_role] == "app_master" || (node[:instance_role] == "util" && no
       end
     end
 
-    execute "monit-reload-restart" do
-       command "monit reload && sleep 30 && monit restart all dj_#{app_name}"
+    execute "monit reload" do
        action :run
     end
 
