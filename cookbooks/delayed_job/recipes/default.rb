@@ -37,6 +37,7 @@ if node[:instance_role] == "app_master" || node[:instance_role] == "solo" || (no
 
     execute "monit reload" do
        action :run
+       epic_fail true
     end
 
   end
