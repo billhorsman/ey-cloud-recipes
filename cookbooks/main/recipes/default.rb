@@ -85,6 +85,7 @@ end
 
 require_recipe "delayed_job"
 require_recipe "monit"
+require_recipe "openssh"
 require_recipe "whenever"
 
 #uncomment to include the Elasticsearch recipe
