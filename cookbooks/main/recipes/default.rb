@@ -47,7 +47,7 @@ include_recipe "memcached"
 
 #uncomment to install specified packages
 # You must add your packages to packages/attributes/packages.rb
-#require_recipe "packages"
+#include_recipe "packages"
 
 #uncomment to run the exim::auth recipe
 #include_recipe "exim::auth"
@@ -93,10 +93,10 @@ if ['app_master', 'app', 'util', 'solo'].include?(node[:instance_role])
   end
 end
 
-require_recipe "delayed_job"
-require_recipe "monit"
-require_recipe "openssh"
-require_recipe "whenever"
+include_recipe "delayed_job"
+include_recipe "monit"
+include_recipe "openssh"
+include_recipe "whenever"
 
 #uncomment to include the Elasticsearch recipe
 #include_recipe "elasticsearch"
